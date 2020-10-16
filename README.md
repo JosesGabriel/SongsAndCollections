@@ -1,4 +1,4 @@
-# ThoughtsAndCollections
+# SongsAndCollections
 
 A music player that you can curate with songs you created, covered, and/or produced.
 
