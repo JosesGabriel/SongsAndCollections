@@ -11,3 +11,4 @@ To create a unique and personalized gift that we could give to people who are sp
 ## Progress
 
 - Initial development stage. | Oct 15, 2020
+- Improved design on Song Card. | Oct 19, 2020
