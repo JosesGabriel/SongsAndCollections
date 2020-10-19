@@ -10,18 +10,30 @@ final List<Song> _songList = [
   Song(id: 't1', title: 'Nothing'),
   Song(id: 't2', title: 'Somewhere in Neverland'),
   Song(id: 't3', title: 'Hung Up'),
+  Song(id: 't4', title: 'Tenerife Sea'),
+  Song(id: 't5', title: 'Honesty'),
+  Song(id: 't6', title: 'Mr. Blue'),
 ];
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-    ));
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+          systemNavigationBarIconBrightness: Brightness.light,
+          systemNavigationBarColor: Colors.red,
+          systemNavigationBarDividerColor: Colors.red,
+          statusBarColor: Colors.red,
+          statusBarBrightness: Brightness.light,
+          statusBarIconBrightness: Brightness.light),
+    );
     return MaterialApp(
       title: 'Collections',
       home: _HomePageState(),
-      theme: ThemeData(primarySwatch: Colors.grey),
+      theme: ThemeData(
+        primarySwatch: Colors.grey,
+        primaryColor: Color.fromRGBO(254, 219, 208, 1),
+      ),
     );
   }
 }
@@ -30,21 +42,34 @@ class _HomePageState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Container(
-          margin: EdgeInsets.only(top: 20),
           child: Text(
             appBarTitle,
+            style: TextStyle(color: Colors.white),
           ),
         ),
-        backgroundColor: Color.fromRGBO(254, 219, 208, 1),
+        backgroundColor: Colors.transparent,
         centerTitle: true,
+        elevation: 0,
       ),
       body: Stack(
         children: [
           Container(
+            padding: EdgeInsets.only(top: 50),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Color(0xFF764BA2),
+                  Color(0xFF667EEA),
+                ],
+              ),
+            ),
             child: Padding(
-              padding: EdgeInsets.all(30),
+              padding: EdgeInsets.all(20),
               child: ListView.separated(
                 padding: const EdgeInsets.all(8),
                 itemCount: _songList.length,
@@ -52,7 +77,7 @@ class _HomePageState extends StatelessWidget {
                   return SongCard(_songList[index].title);
                 },
                 separatorBuilder: (BuildContext context, int index) =>
-                    const Divider(),
+                    const Divider(color: Colors.transparent),
               ),
               // Text("data", style: TextStyle(color: Colors.black)),
             ),
