@@ -68,7 +68,7 @@ class SongCard extends StatelessWidget {
                   width: playButtonSize,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white.withOpacity(0.3),
+                    color: Colors.white.withOpacity(0.2),
                   ),
                   alignment: Alignment.center,
                   child: Icon(Icons.play_arrow,
