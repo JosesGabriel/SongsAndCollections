@@ -32,7 +32,7 @@ class App extends StatelessWidget {
             headline6: TextStyle(
               fontFamily: 'Nunito',
               fontSize: 24,
-              color: Colors.white,
+              color: Colors.black,
             )),
         primarySwatch: Colors.grey,
         primaryColor: Color.fromRGBO(254, 219, 208, 1),
@@ -44,12 +44,16 @@ class App extends StatelessWidget {
 class _HomePageState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Container(
-          child:
-              Text(appBarTitle, style: Theme.of(context).textTheme.headline5),
+          child: Text(
+            appBarTitle,
+            style: Theme.of(context).textTheme.headline5,
+          ),
         ),
         backgroundColor: Colors.transparent,
         centerTitle: true,
@@ -58,22 +62,26 @@ class _HomePageState extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            padding: EdgeInsets.zero,
-            margin: EdgeInsets.zero,
+            margin: EdgeInsets.only(top: mediaQuery.size.height * 0.55),
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [Colors.black, Colors.black],
+              borderRadius: BorderRadius.zero,
+            ),
+            height: mediaQuery.size.height * 0.45,
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.zero,
+              ),
+              margin: EdgeInsets.zero,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 80),
+                child: Text(
+                  _songList[0].title,
+                  style: Theme.of(context).textTheme.headline6,
+                ),
               ),
             ),
-            child: PageView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: _songList.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return SongCard(_songList[index].title);
-                }),
           ),
+          SongCard(_songList[0].title),
         ],
       ),
     );
