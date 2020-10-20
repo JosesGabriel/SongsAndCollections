@@ -12,3 +12,5 @@ To create a unique and personalized gift that we could give to people who are sp
 
 - Initial development stage. | Oct 15, 2020
 - Improved design on Song Card. | Oct 19, 2020
+- Switch from vertical scrolling list of cards to horizontal. | Oct 20, 2020
+- Created separate branch for vertical scrolling cards in case I want to revert. | Oct 20, 2020
