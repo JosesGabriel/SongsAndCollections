@@ -18,19 +18,32 @@ final List<Song> _songList = [
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-          systemNavigationBarIconBrightness: Brightness.light,
-          systemNavigationBarColor: Colors.red,
-          systemNavigationBarDividerColor: Colors.red,
-          statusBarColor: Colors.red,
-          statusBarBrightness: Brightness.light,
-          statusBarIconBrightness: Brightness.light),
-    );
+    // SystemChrome.setSystemUIOverlayStyle(
+    //   SystemUiOverlayStyle(
+    //       systemNavigationBarIconBrightness: Brightness.light,
+    //       systemNavigationBarColor: Colors.red,
+    //       systemNavigationBarDividerColor: Colors.red,
+    //       statusBarColor: Colors.red,
+    //       statusBarBrightness: Brightness.light,
+    //       statusBarIconBrightness: Brightness.light),
+    // );
     return MaterialApp(
       title: 'Collections',
       home: _HomePageState(),
       theme: ThemeData(
+        fontFamily: "Nunito",
+        textTheme: ThemeData.light().textTheme.copyWith(
+            headline6: TextStyle(
+              fontFamily: 'Nunito',
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              color: Colors.white,
+            ),
+            bodyText1: TextStyle(
+              fontFamily: 'Nunito',
+              fontSize: 18,
+              color: Colors.white,
+            )),
         primarySwatch: Colors.grey,
         primaryColor: Color.fromRGBO(254, 219, 208, 1),
       ),
@@ -45,10 +58,8 @@ class _HomePageState extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Container(
-          child: Text(
-            appBarTitle,
-            style: TextStyle(color: Colors.white),
-          ),
+          child:
+              Text(appBarTitle, style: Theme.of(context).textTheme.headline6),
         ),
         backgroundColor: Colors.transparent,
         centerTitle: true,
