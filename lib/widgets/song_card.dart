@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
 class SongCard extends StatefulWidget {
-  final String title;
-
-  SongCard(this.title);
-
   @override
   _SongCardState createState() => _SongCardState();
 }
