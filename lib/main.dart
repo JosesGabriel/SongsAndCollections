@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+
 import './widgets/song_card.dart';
 import './widgets/song_listview.dart';
 
@@ -22,7 +24,28 @@ class App extends StatelessWidget {
   }
 }
 
-class _HomePageState extends StatelessWidget {
+class _HomePageState extends StatefulWidget {
+  @override
+  __HomePageStateState createState() => __HomePageStateState();
+}
+
+class __HomePageStateState extends State<_HomePageState> {
+  var songProgress = 0.0;
+
+  Timer timer;
+  @override
+  void initState() {
+    super.initState();
+    timer = Timer.periodic(Duration(seconds: 1), (Timer t) {
+      setState(() {
+        songProgress += 0.20;
+      });
+      if (songProgress > 1) {
+        songProgress = 0.0;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -45,6 +68,20 @@ class _HomePageState extends StatelessWidget {
         children: [
           SongListView(),
           SongCard(),
+          Positioned(
+            top: mediaQuery.size.height * 0.15,
+            left: mediaQuery.size.width * 0.20,
+            child: Container(
+              width: mediaQuery.size.width * 0.6,
+              height: mediaQuery.size.width * 0.6,
+              child: CircularProgressIndicator(
+                value: songProgress,
+                valueColor: AlwaysStoppedAnimation(
+                  Color(0xFFFFB6C1),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
