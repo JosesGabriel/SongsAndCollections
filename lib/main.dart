@@ -71,15 +71,26 @@ class __HomePageStateState extends State<_HomePageState> {
           Positioned(
             top: mediaQuery.size.height * 0.15,
             left: mediaQuery.size.width * 0.20,
-            child: Container(
-              width: mediaQuery.size.width * 0.6,
-              height: mediaQuery.size.width * 0.6,
-              child: CircularProgressIndicator(
-                value: songProgress,
-                valueColor: AlwaysStoppedAnimation(
-                  Color(0xFFFFB6C1),
+            child: Stack(
+              children: [
+                Container(
+                  width: mediaQuery.size.width * 0.6,
+                  height: mediaQuery.size.width * 0.6,
+                  child: CircularProgressIndicator(
+                    value: songProgress,
+                    valueColor: AlwaysStoppedAnimation(
+                      Color(0xFFFFB6C1),
+                    ),
+                  ),
                 ),
-              ),
+                Container(
+                  width: mediaQuery.size.width * 0.6,
+                  height: mediaQuery.size.width * 0.6,
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage('assets/images/ses.jpg'),
+                  ),
+                )
+              ],
             ),
           ),
         ],
