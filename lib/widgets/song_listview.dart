@@ -70,13 +70,15 @@ class SongListView extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     return Container(
-      margin: EdgeInsets.only(top: mediaQuery.size.height * 0.55),
+      margin: EdgeInsets.only(
+          top: mediaQuery.size.height * 0.45,
+          bottom: mediaQuery.size.height * 0.13),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.zero,
       ),
-      height: mediaQuery.size.height * 0.45,
+      height: mediaQuery.size.height,
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 0),
       child: ListView.separated(
           itemBuilder: (BuildContext context, int index) {
             return songListItem(

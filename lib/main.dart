@@ -71,13 +71,13 @@ class __HomePageStateState extends State<_HomePageState> {
           SongListView(),
           SongCard(),
           Positioned(
-            top: mediaQuery.size.height * 0.15,
+            top: mediaQuery.size.height * 0.13,
             left: mediaQuery.size.width * 0.20,
             child: Stack(
               children: [
                 Container(
-                  width: mediaQuery.size.width * 0.6,
-                  height: mediaQuery.size.width * 0.6,
+                  width: mediaQuery.size.width * 0.55,
+                  height: mediaQuery.size.width * 0.55,
                   child: CircularProgressIndicator(
                     value: songProgress,
                     valueColor: AlwaysStoppedAnimation(
@@ -86,8 +86,8 @@ class __HomePageStateState extends State<_HomePageState> {
                   ),
                 ),
                 Container(
-                  width: mediaQuery.size.width * 0.6,
-                  height: mediaQuery.size.width * 0.6,
+                  width: mediaQuery.size.width * 0.55,
+                  height: mediaQuery.size.width * 0.55,
                   child: CircleAvatar(
                     backgroundImage: AssetImage('assets/images/ses.jpg'),
                   ),
@@ -97,7 +97,7 @@ class __HomePageStateState extends State<_HomePageState> {
           ),
           Positioned(
             bottom: mediaQuery.size.height * 0.02,
-            left: mediaQuery.size.width * 0.10,
+            left: mediaQuery.size.width * 0.05,
             child: AudioController(),
           )
         ],

@@ -31,7 +31,7 @@ class _AudioControllerState extends State<AudioController> {
         ],
       ),
       padding: EdgeInsets.symmetric(vertical: 4),
-      width: mediaQuery.size.width * 0.8,
+      width: mediaQuery.size.width * 0.9,
       height: mediaQuery.size.height * 0.1,
       child: Material(
         color: Colors.transparent,

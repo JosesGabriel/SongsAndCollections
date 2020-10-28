@@ -11,7 +11,7 @@ class _SongCardState extends State<SongCard> {
     final mediaQuery = MediaQuery.of(context);
 
     return SizedBox(
-      height: mediaQuery.size.height * 0.6,
+      height: mediaQuery.size.height * 0.5,
       width: mediaQuery.size.width,
       child: Container(
           decoration: BoxDecoration(
