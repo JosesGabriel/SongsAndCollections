@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import './widgets/song_card.dart';
 import './widgets/song_listview.dart';
+import './widgets/audio_controller.dart';
 
 void main() => runApp(App());
 
@@ -20,6 +21,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.grey,
         primaryColor: Color.fromRGBO(254, 219, 208, 1),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -31,8 +33,8 @@ class _HomePageState extends StatefulWidget {
 
 class __HomePageStateState extends State<_HomePageState> {
   var songProgress = 0.0;
-
   Timer timer;
+
   @override
   void initState() {
     super.initState();
@@ -93,6 +95,11 @@ class __HomePageStateState extends State<_HomePageState> {
               ],
             ),
           ),
+          Positioned(
+            bottom: mediaQuery.size.height * 0.02,
+            left: mediaQuery.size.width * 0.10,
+            child: AudioController(),
+          )
         ],
       ),
     );
